@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript" src="<?php echo JS_PATH?>jquery.min.js"></script>
+	<script type="text/javascript" src="<?php echo JS_PATH?>music.js"></script>
+	<style>
+		ul{
+			padding: 30px;
+			border: 1px solid black;
+		}
+		ul li{
+			cursor:pointer;
+			padding: 10px;
+			border-bottom: 1px solid black;
+		}
+		ul li span{
+			margin-right: 10px;
+		}
+		ul li .delete{
+			display: none;
+		}
+		ul li:hover .delete{
+			display: inline-block;
+		}
+		.active{
+			color: blue;
+		}
+		.add{
+			font-size: 40px;
+			margin-left: 100px;
+			cursor: pointer;
+		}
+		.control::after{
+			content:'';
+			display: block;
+			clear: both;	
+		}
+		.control .button{
+			padding: 10px;
+			border: 1px solid black;
+			float: left;
+			margin: 10px;
+			list-style: none;
+		}
+		.progress,.volprogress{
+			width: 400px;
+			height: 12px;
+			box-sizing: border-box;
+			border: 1px solid black;
+			margin: 30px 40px;
+			position: relative;
+			cursor: pointer;
+		}
+		.pro-inner,.vol-innner{
+			width: 0;
+			height: 4px;
+			border:1px solid black;
+			margin-top: 2px;
+			position: relative;
+		}
+		.point,.vol-point{
+			width: 10px;
+			height: 10px;
+			border-radius: 50%;
+			background: yellow;
+			position: absolute;
+			right: -5px;
+			top: -3px;
+		}
+		.vol-innner{
+			width: 100%;
+		}
+		.progress .time{
+			position: absolute;
+			right: 30px;
+			top: -20px;
+		}
+		.addmusic div{
+			margin-left: 20px;
+			padding: 15px;
+			float: left;
+			border: 1px solid black;
+			cursor: pointer;
+		}
+		.addmusic::after{
+			content: '';
+			display: block;
+			clear: both;
+		}
+	</style>
+	<body>
+		<audio src="" controls=""></audio>
+		<div class="add">+</div>
+		<div class="addmusic">
+			<div>1</div>
+			<div>2</div>
+			<div>3</div>
+			<div>4</div>
+		</div>
+		
+		<ul class="play-lists"></ul>
+		<ul class="control">
+			<li class="button">上一首</li>
+			<li class="button">播放</li>
+			<li class="button">下一首</li>
+			<li class="button">循环播放</li>
+			<li class="button">正常</li>
+		</ul>
+		
+		<div class="progress">
+			<div class="time">
+				<span class='currentTime'>--:--</span>
+				<span>\</span>
+				<span class='totleTime'>--:--</span>
+			</div>
+			<div class="pro-inner">
+				<div class="point"></div>
+			</div>
+		</div>
+		<div class="volprogress">
+			<div class="vol-innner">
+				<div class="vol-point"></div>
+			</div>
+		</div>
+		<div class="show">
+			<div class="pic"><img src="" alt="" /></div>
+			<div class="music"></div>
+			<div class="album"></div>
+		</div>
+	</body>
+</html>

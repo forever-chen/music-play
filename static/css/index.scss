@@ -1,0 +1,272 @@
+@import 'base';
+@font-face {
+  font-family: 'iconfont';
+  src: url('font/iconfont.eot');
+  src: url('font/iconfont.eot?#iefix') format('embedded-opentype'),
+  url('font/iconfont.woff') format('woff'),
+  url('font/iconfont.ttf') format('truetype'),
+  url('font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+  font-family:"iconfont" !important;
+  font-size:16px;font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+.fullbox{
+    @include rect(100%,100%);
+    background-image: url(images/bg_index_new.jpg);
+    position: fixed;
+    overflow: hidden;
+    .button{
+        @include rect(72px,108px);
+        position: absolute;
+        z-index: 10;
+        @extend %tb;
+        line-height: 108px;
+        text-align: center;
+        color: white;
+        transition: all .5s;
+        &:hover{
+            .empty{
+                width:80px;
+                opacity: 1;
+                background: #31c27c;
+            }
+        }
+        i{
+            color: white;
+            position: absolute;
+            margin-left: -10px;
+            font-size: 16px;
+        }
+        .empty{
+            position: absolute;
+            @include rect(72px,108px,white);
+            opacity: 0.3;
+            z-index: -1;
+            transition: all .5s;
+        }
+        
+    }
+    &:hover{
+        .button{
+            transform: translateX(0);
+        }
+        
+    }
+    .lb{
+        left: 0;
+        transform: translateX(-100%);
+    }
+    .rb{
+        right: 0;
+        i{
+            margin-left: 0;
+        }
+        transform: translateX(100%);
+        &:hover{
+            .empty{
+                transform: translateX(-8px);
+            }
+        }
+    }
+    .full{
+        @include rect(1200px,auto);
+        margin:0 auto;
+        position: relative;
+        
+    }
+}
+
+.new{
+    text-align: center;
+    color: white;
+    margin-top: 70px;
+    h2{
+        letter-spacing: 5px;
+        font-size: 45px;
+        font-weight: 100;
+    }  
+}
+.navbox{
+    margin-top: 40px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #777;
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    span{
+        margin: 46px 35px 0;
+        cursor: pointer;
+//      &:nth-child(1){
+//          color: white;
+//      }
+        &:hover{
+            color: white;
+        }
+    }
+    .right{
+        color: white;
+        position: absolute;
+        margin: 0;
+        right: 0;
+        &:hover{
+            color:  #31c27c;
+        }
+    }
+}
+.lunbo{
+    @include rect(100%,415px);
+    position: relative;
+    overflow: hidden;
+}
+.singerbox{
+    @include rect(100%,415px);
+    position: absolute;
+    display: none;
+    .sing{
+        float: left;
+        @include rect(25%,100%);
+        .top{
+            @include rect(100%,300px);
+            overflow: hidden;
+            position: relative;
+            .big{
+               transition: all 0.5s; 
+            }
+            .zhezhao{
+                @include rect(100%,100%,black);
+                opacity: 0;
+                position: absolute;
+                z-index: 2;
+                transition: all 0.5s; 
+            }
+            .stop{
+                img{
+                    position: absolute;
+                    @extend %tb;
+                    left: 0;
+                    right: 0;
+                    margin: auto;
+                    opacity: 0;
+                    transition: all 0.5s;
+                    transform: scale(0.6,0.6);
+                }
+            }
+            
+            &:hover{
+                .big{
+                    opacity: 0.8;
+                    transform: scale(1.1,1.1);
+                }
+                .zhezhao{
+                    opacity: 0.4;
+                }
+                .stop{
+                    img{
+                        opacity: 0.8;
+                        transform: scale(1,1);
+                    }
+                }
+            }
+            
+        }
+        .bottom{
+            @include rect(100%,115px);
+            padding:30px 0;
+            position: relative;
+            z-index: 2;
+            .opacity{
+                left: 0;
+                top: 0;
+                position: absolute;
+                @include rect(100%,100%,black);
+                opacity: 0.7;
+                z-index: -1;
+            }
+            .name{
+                position: relative;
+                z-index: 5;
+                line-height: 22px;
+                font-weight: 400;
+                text-align: center;
+                color: white;
+                font-size: 16px;
+                
+                &:nth-child(3){
+                    color: #777;
+                }
+                .yuan{
+                    vertical-align: -4px;
+                    position: relative;
+                    left: 10px;
+                    position: relative;
+                    display: inline-block;
+                    @include squ(20px);
+                    background: url(images/icon_sprite.png) no-repeat -180px -100px;
+                    opacity: 0;
+                }
+            }
+            .first{
+                padding-left: 20px;
+            }
+        }
+        &:hover{
+            .bottom .name .yuan{
+                opacity: 1;
+            }
+            .opacity{
+                background: #31c27c;
+                opacity: 1;
+                
+            }
+            .name:nth-child(3){
+                color: darken 20%;
+            }
+        }
+    }
+}
+.lunbo{
+    .appear{
+        display: block;
+    }
+    .high{
+        z-index: 10;
+    }
+    .right-out{
+        animation: right-out 1s ease both;  
+    }
+    .right-in{
+        transition: right-in 1s ease both;   
+    }
+    .left-out{
+        animation: left-out 1s ease both;  
+    }
+    .left-in{
+        transition: left-in 1s ease both;   
+    }
+}
+.btnbox{
+    @include rect(100px,20px);
+    margin: 0 auto;
+    margin-top: 10px;
+    .btn{
+        @include rect(33.33%,100%);
+        float: left;
+        position: relative;
+        .line{
+            @include rect(30px,1px,white);
+            @extend %tb;
+            left: 0;
+            right: 0;
+            margin: auto;
+            opacity: 0.7;
+        }
+        .opacity{
+            opacity: 1;
+        }
+    }
+}

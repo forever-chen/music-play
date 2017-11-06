@@ -1,0 +1,422 @@
+@charset "UTF-8";
+body, p, h1, h2, h3, h4, h5, h6, ul, ol, dl, li, dt, dd, input, form, pre {
+  margin: 0px;
+  list-style: none;
+  /*清楚小黑点*/
+  padding: 0px;
+  font-family: "Arial","微软雅黑","黑体";
+  /*英文不需要逗号*/
+  font-size: 12px; }
+
+* {
+  box-sizing: border-box; }
+
+a {
+  color: #333;
+  text-decoration: none; }
+
+.fullbox .button, .singerbox .sing .top .stop img, .btnbox .btn .line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto; }
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+  float: left;
+  position: relative; }
+
+.row {
+  min-height: 1px; }
+  .row:after {
+    content: '';
+    clear: both; }
+
+.col-1 {
+  width: 8.33333%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-2 {
+  width: 16.66667%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-3 {
+  width: 25%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-4 {
+  width: 33.33333%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-5 {
+  width: 41.66667%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-6 {
+  width: 50%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-7 {
+  width: 58.33333%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-8 {
+  width: 66.66667%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-9 {
+  width: 75%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-10 {
+  width: 83.33333%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-11 {
+  width: 91.66667%;
+  box-sizing: border-box;
+  position: relative; }
+
+.col-12 {
+  width: 100%;
+  box-sizing: border-box;
+  position: relative; }
+
+@keyframes left-out {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(100%, 0, 0); } }
+
+@keyframes left-in {
+  0% {
+    transform: translate3d(-100%, 0, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes right-out {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(-100%, 0, 0); } }
+
+@keyframes right-in {
+  0% {
+    transform: translate3d(100%, 0, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes top-in {
+  0% {
+    transform: translate3d(0, -100%, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes top-out {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(0, 100%, 0); } }
+
+@keyframes bottom-in {
+  0% {
+    transform: translate3d(0, 100%, 0); }
+  100% {
+    transform: translate3d(0, 0, 0); } }
+
+@keyframes bottom-out {
+  0% {
+    transform: translate3d(0, 0, 0); }
+  100% {
+    transform: translate3d(0, -100%, 0); } }
+
+.left-out {
+  animation: left-out 1s both; }
+
+.left-in {
+  animation: left-in 1s both; }
+
+.right-out {
+  animation: right-out 1s both; }
+
+.right-in {
+  animation: right-in 1s both; }
+
+.top-in {
+  animation: top-in 1s both; }
+
+.top-out {
+  animation: top-out 1s both; }
+
+.bottom-in {
+  animation: bottom-in 1s both; }
+
+.bottom-out {
+  animation: bottom-out 1s both; }
+
+@media (min-width: 320px) {
+  html {
+    font-size: 42.66667px; } }
+
+@media (min-width: 360px) {
+  html {
+    font-size: 48px; } }
+
+@media (min-width: 375px) {
+  html {
+    font-size: 50px; } }
+
+@media (min-width: 414px) {
+  html {
+    font-size: 55.2px; } }
+
+@media (min-width: 750px) {
+  html {
+    font-size: 100px; } }
+
+@media (min-width: 768px) {
+  html {
+    font-size: 102.4px; } }
+
+@font-face {
+  font-family: 'iconfont';
+  src: url("font/iconfont.eot");
+  src: url("font/iconfont.eot?#iefix") format("embedded-opentype"), url("font/iconfont.woff") format("woff"), url("font/iconfont.ttf") format("truetype"), url("font/iconfont.svg#iconfont") format("svg"); }
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale; }
+
+.fullbox {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  background-image: url(../images/bg_index_new.jpg);
+  position: fixed;
+  overflow: hidden; }
+  .fullbox .button {
+    width: 72px;
+    height: 108px;
+    background: transparent;
+    position: absolute;
+    z-index: 10;
+    line-height: 108px;
+    text-align: center;
+    color: white;
+    transition: all .5s; }
+    .fullbox .button:hover .empty {
+      width: 80px;
+      opacity: 1;
+      background: #31c27c; }
+    .fullbox .button i {
+      color: white;
+      position: absolute;
+      margin-left: -10px;
+      font-size: 16px; }
+    .fullbox .button .empty {
+      position: absolute;
+      width: 72px;
+      height: 108px;
+      background: white;
+      opacity: 0.3;
+      z-index: -1;
+      transition: all .5s; }
+  .fullbox:hover .button {
+    transform: translateX(0); }
+  .fullbox .lb {
+    left: 0;
+    transform: translateX(-100%); }
+  .fullbox .rb {
+    right: 0;
+    transform: translateX(100%); }
+    .fullbox .rb i {
+      margin-left: 0; }
+    .fullbox .rb:hover .empty {
+      transform: translateX(-8px); }
+  .fullbox .full {
+    width: 1200px;
+    height: auto;
+    background: transparent;
+    margin: 0 auto;
+    position: relative; }
+
+.new {
+  text-align: center;
+  color: white;
+  margin-top: 70px; }
+  .new h2 {
+    letter-spacing: 5px;
+    font-size: 45px;
+    font-weight: 100; }
+
+.navbox {
+  margin-top: 40px;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+  font-weight: bold;
+  position: relative; }
+  .navbox span {
+    margin: 46px 35px 0;
+    cursor: pointer; }
+    .navbox span:hover {
+      color: white; }
+  .navbox .right {
+    color: white;
+    position: absolute;
+    margin: 0;
+    right: 0; }
+    .navbox .right:hover {
+      color: #31c27c; }
+
+.lunbo {
+  width: 100%;
+  height: 415px;
+  background: transparent;
+  position: relative;
+  overflow: hidden; }
+
+.singerbox {
+  width: 100%;
+  height: 415px;
+  background: transparent;
+  position: absolute;
+  display: none; }
+  .singerbox .sing {
+    float: left;
+    width: 25%;
+    height: 100%;
+    background: transparent; }
+    .singerbox .sing .top {
+      width: 100%;
+      height: 300px;
+      background: transparent;
+      overflow: hidden;
+      position: relative; }
+      .singerbox .sing .top .big {
+        transition: all 0.5s; }
+      .singerbox .sing .top .zhezhao {
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0;
+        position: absolute;
+        z-index: 2;
+        transition: all 0.5s; }
+      .singerbox .sing .top .stop img {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        opacity: 0;
+        transition: all 0.5s;
+        transform: scale(0.6, 0.6); }
+      .singerbox .sing .top:hover .big {
+        opacity: 0.8;
+        transform: scale(1.1, 1.1); }
+      .singerbox .sing .top:hover .zhezhao {
+        opacity: 0.4; }
+      .singerbox .sing .top:hover .stop img {
+        opacity: 0.8;
+        transform: scale(1, 1); }
+    .singerbox .sing .bottom {
+      width: 100%;
+      height: 115px;
+      background: transparent;
+      padding: 30px 0;
+      position: relative;
+      z-index: 2; }
+      .singerbox .sing .bottom .opacity {
+        left: 0;
+        top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: 0.7;
+        z-index: -1; }
+      .singerbox .sing .bottom .name {
+        position: relative;
+        z-index: 5;
+        line-height: 22px;
+        font-weight: 400;
+        text-align: center;
+        color: white;
+        font-size: 16px; }
+        .singerbox .sing .bottom .name:nth-child(3) {
+          color: #777; }
+        .singerbox .sing .bottom .name .yuan {
+          vertical-align: -4px;
+          position: relative;
+          left: 10px;
+          position: relative;
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          background: transparent;
+          background: url(../images/icon_sprite.png) no-repeat -180px -100px;
+          opacity: 0; }
+      .singerbox .sing .bottom .first {
+        padding-left: 20px; }
+    .singerbox .sing:hover .bottom .name .yuan {
+      opacity: 1; }
+    .singerbox .sing:hover .opacity {
+      background: #31c27c;
+      opacity: 1; }
+    .singerbox .sing:hover .name:nth-child(3) {
+      color: darken 20%; }
+
+.lunbo .appear {
+  display: block; }
+
+.lunbo .high {
+  z-index: 10; }
+
+.lunbo .right-out {
+  animation: right-out 1s ease both; }
+
+.lunbo .right-in {
+  transition: right-in 1s ease both; }
+
+.lunbo .left-out {
+  animation: left-out 1s ease both; }
+
+.lunbo .left-in {
+  transition: left-in 1s ease both; }
+
+.btnbox {
+  width: 100px;
+  height: 20px;
+  background: transparent;
+  margin: 0 auto;
+  margin-top: 10px; }
+  .btnbox .btn {
+    width: 33.33%;
+    height: 100%;
+    background: transparent;
+    float: left;
+    position: relative; }
+    .btnbox .btn .line {
+      width: 30px;
+      height: 1px;
+      background: white;
+      left: 0;
+      right: 0;
+      margin: auto;
+      opacity: 0.7; }
+    .btnbox .btn .opacity {
+      opacity: 1; }

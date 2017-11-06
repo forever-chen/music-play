@@ -1,0 +1,97 @@
+<?php include APP.'views/admin/header.html'?>
+<?php include APP.'views/admin/slidenav.html'?>
+<style>
+	.parent{
+		position: relative;
+		text-align: center;
+		}
+	.parent .opacity{
+		opacity: 0;
+	}
+	.parent:hover #pic{
+		opacity: 0.7;
+	}
+	.position{
+		position: absolute;
+		text-align: center;
+		line-height: 37px;
+		padding-left: 10px;
+		font-size: 30px;
+		
+		transition: all .3s;
+		opacity: 0;
+	}
+	#pic{
+		position: absolute;
+		font-size: 30px;
+		left: 20px;
+		top: 0;
+		z-index: 10;
+		color: greenyellow;
+		cursor: pointer;
+	}
+</style>	
+<div class="col-md-9 col-xs-12">
+	
+	<table class="table table-bordered table-hover">
+		<thead>
+			<div class="panel panel-info" style="margin: 0;">
+				<div class="panel-heading panel-info text-center">歌手管理</div>	
+			</div>
+			<!--<div class="progress" style="margin-top: 20px;height: 5px;">
+  				<div class="progress-bar progress-bar-info progress-bar-striped inner" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+   					<span class="sr-only">20% Complete</span>
+  				</div>
+			</div>-->
+			<tr class="text-center">
+				<th>编号</th>
+				<th>姓名</th>
+				<th>出生地</th>
+				<th>代表作编号</th>
+				<th>头像</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody id='contain'>
+			<?php foreach($artists as $v):?>
+				<tr style="cursor: pointer;" art_id='<?php echo $v['artists_id']?>'>
+				<td><?php echo $v['artists_id']?></td>
+				<td><input type="text" value="<?php echo $v['artists_name']?>" style="border: 0;background: transparent;" id='artists_name'/></td>
+				<td><input type="text" value="<?php echo $v['artists_birth']?>" style="border: 0;background: transparent;" id='artists_birth'/></td>
+				<td><input type="text" value="<?php echo $v['magnum_id']?>" style="border: 0;background: transparent;" id='magnum_id'/></td>
+				
+				<td class='parent'>
+					
+					<form method="post" enctype="multipart/form-data">
+						<?php if(empty($v['magnum_pic'])):?>
+						<label for="ab<?php echo $v['artists_id']?>" id='pic' style='opacity: 0.7;'>+</label>
+						<?php else:?>
+						<label for="ab<?php echo $v['artists_id']?>" id='pic' class="opacity">+</label>
+						<?php endif?>
+						<input type="file" id="ab<?php echo $v['artists_id']?>" name='file' style="display: none;"/>			
+					</form>		
+					<img src="<?php echo $v['magnum_pic']?>" alt="" width=30 height=30 />				
+				</td>					
+				<td><span class="glyphicon glyphicon-remove" style='color: red;'  id='delete'></td>
+				</tr>
+			<?php endforeach;?>
+		</tbody>
+		
+	</table>
+	<div class="progress" style="margin-top: 20px;height: 5px;">
+  				<div class="progress-bar progress-bar-info progress-bar-striped inner" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0">
+   					<span class="sr-only">20% Complete</span>
+  				</div>
+			</div>
+	<button type="button" class="btn btn-default btn-lg btn-block col-md-6" id='add'>
+		<span class="glyphicon glyphicon-plus" style='cursor: pointer;'></span>
+	</button>
+	<form  action="/QQ-music/index.php/admin/unload" enctype="multipart/form-data" method="post">
+		<input type="file" name="file"/>
+		<input type="submit" name="" id="" value="踢脚 " />
+	</form>
+</div>
+	</div>
+</div>
+<script type="text/javascript" src="<?php echo JS_PATH?>admin/artists.js"></script>
+<?php include APP.'views/admin/footer.html'?>

@@ -1,0 +1,160 @@
+<?php include APP.'views/admin/header.html'?>
+<?php include APP.'views/admin/slidenav.html'?>
+<style>
+	dd{
+		position: relative;
+		margin-bottom: 5px;
+	}
+	.xiala{
+		position: absolute;
+		z-index: 1;
+		background: #E5E5E5;
+		border-radius: 3px;
+		width: 100%;
+		box-shadow: 0 0 5px #555 inset;
+		list-style: none;
+		padding: 0;
+	}
+	.xiala li{
+		box-sizing: border-box;
+		padding: 5px 15px;
+		list-style: none;
+	}
+	.xiala li:hover{
+		background: #4EBADA;
+		cursor: pointer;
+	}
+	.media-left{
+		vertical-align: middle;
+		padding-right: 0;
+	}
+	.change{
+		position: absolute;
+		top: 45px;
+		left: 23px;
+	}
+	.change span{
+		cursor: pointer;
+		font-size: 40px;
+		opacity: 0.9;
+		padding: 10px;
+	}
+	.content{
+		padding-top: 20px;
+	}
+	.resume{
+		display:block;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		resize: none;
+		width: 100%;
+	}
+	.media-body .all,.media-body .del_row{
+		position: absolute;
+		right: 100px;
+		top: 20px;
+	}
+	.media-body .del_row {
+		top: 100px;
+	}
+	.media-body {
+		position: relative;
+	}
+	.media-body .del_row .btn{
+		    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+		
+	}
+	.modal-dialog{
+		z-index: 1050;
+	}
+</style>
+<div class="col-md-9 col-xs-12">
+	<div class="panel panel-info" style="margin: 0;">
+		<div class="panel-heading panel-info text-center">专辑管理</div>	
+	</div>
+	<div class="content">
+	<?php foreach($album as $v): ?>
+	<div class="media" id='<?php echo $v['album_id']?>'>
+		<a class="media-left" herf='#' width=100; style='position: relative;'>
+			<img id='<?php echo $v['artists_id']?>' src="<?php echo $v['magnum_pic']?>" alt="" class="img-circle" width=100 height=100 style="margin: auto;"/>
+			<label for="plus<?php echo $v['album_id']?>">
+				<div class="change">
+					<?php if($v['magnum_pic']==''):?>
+					<span class="glyphicon glyphicon-plus"></span>
+					<?php else:?>
+					<span class="glyphicon glyphicon-plus" style="opacity: 0;"></span>	
+					<?php endif;?>
+				</div>
+			</label>
+			<form action="" style="display: none;">
+				<input type="file" name="file" id="plus<?php echo $v['album_id']?>" value="" />
+			</form>
+		</a>
+		<div class="media-body row">
+			<div class="all"><!-- Button trigger modal -->
+				<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+					查看详情
+				</button>
+
+				<!-- Modal -->
+				<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+					 aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span
+										aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+							</div>
+							<div class="modal-body">
+								...
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								<button type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="del_row"><button type="button" class="btn btn-danger">删除专辑</button></div>
+			<dl class="dl-horizontal col-xs-5 col-md-7">
+				<dt>专辑名</dt>
+				<dd>
+					<input type="text" value="<?php echo $v['album_name']?>" class="form-control input-sm album" id='album'/>
+					<ul class="xiala"></ul>
+				</dd>
+				<dt>歌手</dt>
+				<dd>
+					<input type="text" value="<?php echo $v['artists_name']?>" class="form-control input-sm artists" id='artists'/>
+					<ul class="xiala"></ul>
+				</dd>
+				<dt>分类</dt>
+				<dd>
+					<select name="" class="form-control input-sm">
+						<?php foreach($cate as $b=>$r):?>	
+						<option value="<?php echo $r['cate_id']; ?>" <?php echo $v['cate_name']==$r['cate_name']?'selected':'';?>>							
+							<?php echo $r['cate_name']; ?>	
+						</option>
+						<?php endforeach;?>
+					</select>
+				</dd>
+				<dt>简介</dt>
+				<dd><textarea name="" cols="" class="form-control resume"><?php echo $v['album_resume']; ?></textarea></dd>
+			</dl>
+		</div>
+	</div>	
+	<?php endforeach;?>
+	</div>
+	<button type="button" class="btn btn-info btn-lg col-md-6 btn-block" id='add'>
+		<span class="glyphicon glyphicon-plus" style='cursor: pointer;'></span>
+	</button>
+</div>
+	</div>
+</div>
+<script type="text/javascript" src="<?php echo JS_PATH?>admin/album.js"></script>
+<?php include APP.'views/admin/footer.html'?>

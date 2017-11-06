@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="<?php echo CSS_PATH?>index.css"/>
+		<script type="text/javascript" src="<?php echo JS_PATH ?>jquery.min.js"></script>
+		<script type="text/javascript" src="<?php echo JS_PATH ?>index.js"></script>
+	</head>
+	<body>
+		<div class="fullbox">
+			<div class="button lb">
+				<i class="iconfont">&#xe65c;</i>
+				<div class="empty"></div>
+			</div>
+			<div class="button rb">
+				<i class="iconfont">&#xe60b;</i>
+				<div class="empty"></div>
+			</div>
+			<div class="full">
+				<div class="new">
+					<h2>新歌首发</h2>
+				</div>
+				<div class="navbox">
+					<span>全部</span>
+					<?php foreach ($lists as $v):?>
+					<span><?php p($v['cate_name']); ?></span>
+					<?php endforeach;?>
+					<span class="right">全部 ></span>
+				</div>
+				<div class="lunbo">
+					<ul class="singerbox appear">
+					<?php foreach ($lists1 as $v):?>
+					<li class="sing" album_id="<?php echo $v['magnum_id']?>">
+						<div class="top">
+							<div class="zhezhao"></div>
+							<img src="<?php echo $v['magnum_pic']?>" alt="" class="big"/>
+							<div class="stop"><img src="<?PHP echo IMG_PATH?>cover_play.png" alt="" /></div>
+						</div>
+						<div class="bottom">
+							<div class="opacity"></div>
+							<div class="name first">
+								<span><?php p($v['album_name']);?><span class="yuan"></span>
+								<div class="point"></div>
+							</div>
+							<div class="name"><?php p($v['artists_name'])?></div>
+						</div>
+					</li>
+					<?php endforeach;?>
+					</ul>
+					<ul class="singerbox">
+					<?php foreach ($lists2 as $v):?>
+					<li class="sing" album_id="<?php echo $v['magnum_id']?>">
+						<div class="top">
+							<div class="zhezhao"></div>
+							<img src="<?php echo $v['magnum_pic']?>" alt="" class="big"/>
+							<div class="stop"><img src="<?PHP echo IMG_PATH?>cover_play.png" alt="" /></div>
+						</div>
+						<div class="bottom">
+							<div class="opacity"></div>
+							<div class="name first">
+								<span><?php p($v['album_name']);?><span class="yuan"></span>
+								<div class="point"></div>
+							</div>
+							<div class="name"><?php p($v['artists_name'])?></div>
+						</div>
+					</li>
+					<?php endforeach;?>
+					</ul>
+					<ul class="singerbox">
+					<?php foreach ($lists3 as $v):?>
+					<li class="sing" album_id="<?php echo $v['magnum_id']?>">
+						<div class="top">
+							<div class="zhezhao"></div>
+							<img src="<?php echo $v['magnum_pic']?>" alt="" class="big"/>
+							<div class="stop"><img src="<?PHP echo IMG_PATH?>cover_play.png" alt="" /></div>
+						</div>
+						<div class="bottom">
+							<div class="opacity"></div>
+							<div class="name first">
+								<span><?php p($v['album_name']);?><span class="yuan"></span>
+								<div class="point"></div>
+							</div>
+							<div class="name"><?php p($v['artists_name'])?></div>
+						</div>
+					</li>
+					<?php endforeach;?>
+					</ul>
+				</div>
+				<div class="btnbox">
+					<div class="btn">
+						<div class="line opacity"></div>
+					</div>
+					<div class="btn">
+						<div class="line"></div>
+					</div>
+					<div class="btn">
+						<div class="line"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

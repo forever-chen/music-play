@@ -1,0 +1,187 @@
+//基础样式
+
+
+body,p,h1,h2,h3,h4,h5,h6,ul,ol,dl,li,dt,dd,input,form,pre
+{   
+    margin:0px;
+    list-style:none;/*清楚小黑点*/
+    padding:0px;
+    font-family:"Arial","微软雅黑","黑体";/*英文不需要逗号*/
+    font-size:12px;
+}
+*{
+    box-sizing: border-box;
+}
+a{  
+    color:#333;
+    text-decoration:none;
+}
+@mixin rect($width,$height,$color:transparent){
+    width:$width;
+    height: $height;
+    background: $color;
+}
+@mixin squ($width,$color:transparent){
+    width: $width;
+    height: $width;
+    background: $color;
+
+}
+@mixin cir($width){
+    @include squ($width);
+    border-radius: 50%;
+
+}
+
+%tb{
+    position: absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+%lr{
+    position: absolute;
+    left:0;
+    right:0;
+    margin:0 auto;
+}
+@function randomcolor(){
+    $color1:random(255);
+    $color2:random(255);
+    $color3:random(255);
+    $opacity:random(1);
+    @return rgba($color1,$color2,$color3,$opacity);
+}
+@mixin bg($color:transparent){
+    background: $color;
+}
+
+//栅格
+%m{
+    float: left;
+    position: relative;
+}
+.row{  
+    min-height:1px;
+    &:after{
+        content:'';
+        clear:both;
+    }
+}
+$size:12 !default;
+@for $i from 1 through $size{
+    .col-#{$i}{
+        width: percentage($i/$size);
+        @extend %m;
+        box-sizing: border-box;
+        position: relative;
+    }
+}
+
+
+
+
+@keyframes left-out{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(100%,0,0);
+    }
+}
+@keyframes left-in{
+    0%{
+        transform: translate3d(-100%,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes right-out{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(-100%,0,0);
+    }
+}
+@keyframes right-in{
+    0%{
+        transform: translate3d(100%,0,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes top-in{
+    0%{
+        transform: translate3d(0,-100%,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes top-out{
+    0%{
+        transform: translate3d(0,0,0);
+    }
+    100%{
+        transform: translate3d(0,100%,0);
+    }
+}
+@keyframes bottom-in{
+    0%{
+        transform: translate3d(0,100%,0);
+    }
+    100%{
+        transform: translate3d(0,0,0);
+    }
+}
+@keyframes bottom-out{
+    0%{
+        transform: translate3d(0,0,0);
+        
+    }
+    100%{
+        transform: translate3d(0,-100%,0);
+        
+    }
+}
+.left-out{
+    animation: left-out 1s both ;
+}
+
+.left-in{
+    animation: left-in 1s both ;
+
+}
+
+.right-out{
+    animation: right-out 1s both;
+}
+
+.right-in{
+    animation: right-in 1s both ;
+}
+.top-in{
+    animation: top-in 1s both ; 
+}
+.top-out{
+    animation: top-out 1s both ;
+}
+.bottom-in{
+    animation: bottom-in 1s both ;
+}
+.bottom-out{
+    animation: bottom-out 1s both ;
+}
+
+
+$device:320px 360px 375px 414px 750px 768px;
+@each $width in $device{
+    @media (min-width:#{$width}){
+    html{
+        font-size: $width/750px * 100px;
+        }    
+    }
+}
